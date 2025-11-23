@@ -1,27 +1,37 @@
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from transformers import pipeline
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
+from sklearn.decomposition import TruncatedSVD
+from sklearn.feature_extraction.text import CountVectorizer, ENGLISH_STOP_WORDS
 from collections import Counter
 
 
+# -----------------------------
+#   LOAD RAW DATA
+# -----------------------------
 
 def load_raw_data(path: Path) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(f"Could not find raw data at {path}")
 
-    # Use the Python engine and be forgiving with slightly messy CSV rows
+    # More tolerant CSV reader – skips totally broken rows
     df = pd.read_csv(
         path,
-        engine="python",       # more tolerant than the default C engine
-        on_bad_lines="warn"    # skip lines that are totally broken
+        engine="python",
+        on_bad_lines="warn",
     )
     return df
 
 
+# -----------------------------
+#   SENTIMENT ANALYSIS
+# -----------------------------
 
 def init_sentiment_model():
+    # DistilBERT sentiment model (free, from Hugging Face)
     return pipeline(
         task="sentiment-analysis",
         model="distilbert-base-uncased-finetuned-sst-2-english",
@@ -29,7 +39,21 @@ def init_sentiment_model():
 
 
 def add_sentiment(df: pd.DataFrame, sentiment_pipe) -> pd.DataFrame:
-    results = sentiment_pipe(df["text"].tolist())
+    """
+    Run sentiment analysis on the 'text' column and add:
+    - sentiment_label (POSITIVE/NEGATIVE)
+    - sentiment_score (0-1)
+
+    We truncate long reviews to avoid the 512-token limit crash.
+    """
+    texts = df["text"].astype(str).tolist()
+
+    results = sentiment_pipe(
+        texts,
+        truncation=True,
+        max_length=512,
+    )
+
     df = df.copy()
     df["sentiment_label"] = [r["label"] for r in results]
     df["sentiment_score"] = [r["score"] for r in results]
@@ -37,66 +61,113 @@ def add_sentiment(df: pd.DataFrame, sentiment_pipe) -> pd.DataFrame:
 
 
 # -----------------------------
-#   TOPIC MODELING SECTION
+#   TOPIC MODELING (BERT-ish)
 # -----------------------------
 
 def init_embedding_model():
-    # Lightweight, fast embedding model
+    # MiniLM = small, fast, surprisingly powerful
     return SentenceTransformer("all-MiniLM-L6-v2")
+
+
+# Custom extra stopwords you’ve been adding
+CUSTOM_STOPWORDS = {
+    "embrace", "pet", "pets", "insurance", "company",
+    "has", "been", "also", "just", "really", "very",
+    "claim", "claims", "policy", "policies",
+    "dog", "dogs", "cat", "cats", "puppy", "kitten",
+    "year", "years", "month", "months",
+}
+
+ALL_STOPWORDS = ENGLISH_STOP_WORDS.union(CUSTOM_STOPWORDS)
 
 
 def add_topics(df: pd.DataFrame, embedder) -> pd.DataFrame:
     """
-    Create embeddings for each text, cluster them with KMeans,
-    and assign simple topic names based on common words.
+    1) Create semantic embeddings for each review
+    2) Reduce dimensions with TruncatedSVD
+    3) Cluster with KMeans
+    4) Generate topic names using class-based keyword extraction
     """
+
     df = df.copy()
+    texts = df["text"].astype(str).tolist()
 
-    texts = df["text"].tolist()
-    print("Creating embeddings for topic clustering...")
+    if len(df) < 5:
+        # Too few reviews to cluster meaningfully
+        df["topic_cluster"] = 0
+        df["topic_name"] = "All feedback"
+        return df
+
+    # 1) Embeddings
+    print("Creating embeddings for topic modeling...")
     embeddings = embedder.encode(texts, show_progress_bar=True)
+    X = np.array(embeddings)
 
-    # Choose a small number of clusters for our tiny dataset
-    n_clusters = min(4, len(df))  # up to 4 topics
+    # 2) Dimensionality reduction (like a light UMAP)
+    n_samples = X.shape[0]
+    n_components = min(50, X.shape[1], max(2, n_samples - 1))
+    print(f"Reducing embeddings to {n_components} dimensions with SVD...")
+    svd = TruncatedSVD(n_components=n_components, random_state=42)
+    X_reduced = svd.fit_transform(X)
+
+    # 3) KMeans clustering
+    # Choose number of topics based on dataset size
+    # e.g., ~1 topic per 25 reviews, capped between 3 and 12
+    suggested_k = max(3, min(12, n_samples // 25))
+    n_clusters = max(3, suggested_k)
+
     print(f"Clustering into {n_clusters} topics with KMeans...")
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-    cluster_labels = kmeans.fit_predict(embeddings)
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
+    clusters = kmeans.fit_predict(X_reduced)
+    df["topic_cluster"] = clusters
 
-    df["topic_cluster"] = cluster_labels
+    # 4) Class-based keyword extraction per topic
+    print("Extracting keywords for topic names...")
 
-    # Name topics using simple word frequency within each cluster
-    topic_names = {}
-    stopwords = {
-        "the","and","to","it","is","of","i","a","in","for","this","that","was","are","but",
-        "not","very","really","just","like","much","im","i’m","i'm","you","we","they",
-        "so","be","my","your","their","our","on","with","at","too","also","have","has","had",
-        "as","if","or","all","from","by","an","me","he","she","his","her","its","what","when",
-        "which","who","about","there","more","no","one","out","up","would","could","should"
-    }
-
-    for cluster_id in sorted(df["topic_cluster"].unique()):
-        subset = df[df["topic_cluster"] == cluster_id]["text"]
-        words = " ".join(subset).lower().split()
-        words = [
-            w.strip(".,!?\"'()")
-            for w in words
-            if w not in stopwords and len(w) > 2
-        ]
-
-        if not words:
-            topic_names[cluster_id] = f"Topic {cluster_id}"
+    # One big document per topic
+    docs_per_topic = []
+    for topic_id in range(n_clusters):
+        docs = df.loc[df["topic_cluster"] == topic_id, "text"].astype(str)
+        if docs.empty:
+            docs_per_topic.append("")
         else:
-            # Take up to 3 most common words and join them
-            top_words = Counter(words).most_common(3)
-            topic_names[cluster_id] = " / ".join([w for w, _ in top_words])
+            docs_per_topic.append(" ".join(docs))
+
+    # Vectorize big docs
+    vectorizer = CountVectorizer(
+        stop_words=list(ALL_STOPWORDS),
+        max_features=2000,
+        ngram_range=(1, 2),  # allow 1-2 word phrases
+    )
+    doc_term_matrix = vectorizer.fit_transform(docs_per_topic)
+    terms = np.array(vectorizer.get_feature_names_out())
+
+    topic_names = {}
+    for topic_id in range(n_clusters):
+        row = doc_term_matrix[topic_id].toarray().ravel()
+
+        if row.sum() == 0:
+            topic_names[topic_id] = f"Topic {topic_id}"
+            continue
+
+        # Take top 3 words/phrases for the topic
+        top_indices = row.argsort()[::-1][:3]
+        top_terms = [terms[i] for i in top_indices]
+
+        # Make it a little nicer to read
+        topic_label = " / ".join(top_terms)
+        topic_names[topic_id] = topic_label
 
     df["topic_name"] = df["topic_cluster"].map(topic_names)
+
+    print("Topic names:")
+    print(df[["topic_cluster", "topic_name"]].drop_duplicates().sort_values("topic_cluster"))
 
     return df
 
 
 # -----------------------------
-#   SAVE / MAIN SECTION
+#   SAVE / MAIN
 # -----------------------------
 
 def save_processed_data(df: pd.DataFrame, path: Path) -> None:
@@ -123,14 +194,15 @@ def main():
     print("Initializing embedding model...")
     embedder = init_embedding_model()
 
-    print("Adding topics (embeddings + KMeans)...")
+    print("Adding topics (semantic embeddings + SVD + KMeans)...")
     df = add_topics(df, embedder)
 
     print("Sample with sentiment & topics:")
-    print(df[["id", "text", "sentiment_label", "topic_name"]].head())
+    print(df[["id", "rating", "sentiment_label", "topic_cluster", "topic_name"]].head())
 
     save_processed_data(df, processed_path)
 
 
 if __name__ == "__main__":
     main()
+

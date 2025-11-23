@@ -27,6 +27,12 @@ df = load_data()
 
 if df.empty:
     st.stop()
+# Ensure correct data types
+if "rating" in df.columns:
+    df["rating"] = pd.to_numeric(df["rating"], errors="coerce")
+
+if "created_at" in df.columns:
+    df["created_at"] = pd.to_datetime(df["created_at"], errors="coerce")
 
 
 # -----------------------
@@ -107,6 +113,45 @@ sent_topic_pivot = (
 )
 
 st.bar_chart(sent_topic_pivot)
+# -----------------------
+# Sentiment by Rating
+# -----------------------
+
+if "rating" in filtered_df.columns:
+    st.subheader("⭐ Sentiment by Rating")
+
+    sent_rating_pivot = (
+        filtered_df
+        .dropna(subset=["rating"])
+        .groupby(["rating", "sentiment_label"])
+        .size()
+        .unstack(fill_value=0)
+        .sort_index()
+    )
+
+    st.bar_chart(sent_rating_pivot)
+# -----------------------
+# Sentiment Over Time
+# -----------------------
+
+if "created_at" in filtered_df.columns:
+    st.subheader("⏱️ Average Sentiment Over Time")
+
+    # Map POSITIVE/NEGATIVE to +1 / -1 just for a rough trend
+    sentiment_numeric = filtered_df["sentiment_label"].map({"POSITIVE": 1, "NEGATIVE": -1})
+    time_df = filtered_df.copy()
+    time_df["sentiment_numeric"] = sentiment_numeric
+
+    # Resample by week to smooth things a bit (you can change to 'D' for daily)
+    time_df = (
+        time_df
+        .set_index("created_at")
+        .resample("W")["sentiment_numeric"]
+        .mean()
+        .to_frame(name="avg_sentiment")
+    )
+
+    st.line_chart(time_df)
 
 
 # -----------------------
