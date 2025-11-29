@@ -63,6 +63,50 @@ def add_sentiment(df: pd.DataFrame, sentiment_pipe) -> pd.DataFrame:
     out["sentiment_label"] = [r["label"] for r in results]
     out["sentiment_score"] = [r["score"] for r in results]
     return out
+def add_severity(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Add a 'severity' column based on rating + sentiment.
+    Buckets:
+    - Severe
+    - Moderate
+    - Mild
+    - Praise
+    """
+
+    def classify(row):
+        label = row.get("sentiment_label", None)
+        score = row.get("sentiment_score", None)
+        rating = row.get("rating", None)
+
+        # make rating numeric if possible
+        try:
+            r = float(rating) if rating is not None and rating != "" else np.nan
+        except Exception:
+            r = np.nan
+
+        # Default if something is weird
+        if label is None or score is None:
+            return "Mild"
+
+        # Strongly negative / low rating = Severe
+        if label == "NEGATIVE":
+            if (not np.isnan(r) and r <= 2) or score >= 0.9:
+                return "Severe"
+            # still negative but a bit softer
+            return "Moderate"
+
+        # POSITIVE cases
+        if label == "POSITIVE":
+            if not np.isnan(r) and r >= 4 and score >= 0.8:
+                return "Praise"
+            # kinda positive or mixed but not a wow moment
+            return "Mild"
+
+        return "Mild"
+
+    out = df.copy()
+    out["severity"] = out.apply(classify, axis=1)
+    return out
 
 
 # -----------------------------
@@ -213,7 +257,10 @@ def main():
 
     print("Running sentiment analysis...")
     df = add_sentiment(df, sentiment_pipe)
-
+    
+    print("Adding severity categories...")
+    df = add_severity(df)
+    
     print("Initializing embedding model...")
     embedder = init_embedding_model()
 

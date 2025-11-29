@@ -27,6 +27,16 @@ df = load_data()
 
 if df.empty:
     st.stop()
+SEVERITY_ORDER = ["Severe", "Moderate", "Mild", "Praise"]
+
+if "severity" in df.columns:
+    # Make severity a categorical type with order for nicer sorting
+    df["severity"] = pd.Categorical(
+        df["severity"],
+        categories=SEVERITY_ORDER,
+        ordered=True,
+    )
+
 # Ensure correct data types
 if "rating" in df.columns:
     df["rating"] = pd.to_numeric(df["rating"], errors="coerce")
@@ -61,6 +71,19 @@ source_filter = st.sidebar.multiselect(
 
 search_text = st.sidebar.text_input("Search Text")
 
+# Severity filter (if available)
+if "severity" in df.columns:
+    available_severity = [
+        s for s in SEVERITY_ORDER if s in df["severity"].dropna().unique()
+    ]
+    selected_severity = st.sidebar.multiselect(
+        "Severity",
+        options=available_severity,
+        default=available_severity,
+    )
+else:
+    selected_severity = None
+
 
 # -----------------------
 # Apply Filters
@@ -71,7 +94,9 @@ filtered_df = df[
     (df["topic_name"].isin(topic_filter)) &
     (df["source"].isin(source_filter))
 ]
-
+# Apply severity filter if available
+if selected_severity is not None:
+    filtered_df = filtered_df[filtered_df["severity"].isin(selected_severity)]
 if search_text:
     filtered_df = filtered_df[filtered_df["text"].str.contains(search_text, case=False)]
 
@@ -88,6 +113,27 @@ col1.metric("Total Feedback", len(filtered_df))
 col2.metric("Positive", (filtered_df["sentiment_label"] == "POSITIVE").sum())
 col3.metric("Negative", (filtered_df["sentiment_label"] == "NEGATIVE").sum())
 
+# -----------------------
+# Severity Distribution
+# -----------------------
+
+if "severity" in filtered_df.columns and not filtered_df.empty:
+    st.subheader("🚨 Severity Distribution")
+
+    severity_counts = (
+        filtered_df["severity"]
+        .value_counts()
+        .reindex(SEVERITY_ORDER)
+        .dropna()
+    )
+
+    col_a, col_b = st.columns(2)
+
+    with col_a:
+        st.bar_chart(severity_counts)
+
+    with col_b:
+        st.write(severity_counts.to_frame("count"))
 
 # -----------------------
 # Topic Distribution Chart
@@ -113,6 +159,24 @@ sent_topic_pivot = (
 )
 
 st.bar_chart(sent_topic_pivot)
+# -----------------------
+# Severity by Topic
+# -----------------------
+
+if "severity" in filtered_df.columns and not filtered_df.empty:
+    st.subheader("🧊 Severity by Topic")
+
+    sev_topic = (
+        filtered_df
+        .groupby(["topic_name", "severity"])
+        .size()
+        .unstack(fill_value=0)
+        .reindex(columns=SEVERITY_ORDER, fill_value=0)
+        .sort_index()
+    )
+
+    st.bar_chart(sev_topic)
+
 # -----------------------
 # Sentiment by Rating
 # -----------------------
@@ -161,6 +225,6 @@ if "created_at" in filtered_df.columns:
 st.subheader("📝 Feedback Comments")
 st.dataframe(
     filtered_df[
-        ["id", "source", "created_at", "text", "sentiment_label", "topic_name"]
+        ["id", "source", "created_at", "text", "sentiment_label", "severity", "topic_name"]
     ]
 )
