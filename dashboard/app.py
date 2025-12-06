@@ -114,6 +114,16 @@ col2.metric("Positive", (filtered_df["sentiment_label"] == "POSITIVE").sum())
 col3.metric("Negative", (filtered_df["sentiment_label"] == "NEGATIVE").sum())
 
 # -----------------------
+# Source Distribution
+# -----------------------
+
+if "source" in filtered_df.columns and not filtered_df.empty:
+    st.subheader("🌐 Feedback by Source")
+
+    source_counts = filtered_df["source"].value_counts()
+    st.bar_chart(source_counts)
+
+# -----------------------
 # Severity Distribution
 # -----------------------
 
@@ -159,6 +169,24 @@ sent_topic_pivot = (
 )
 
 st.bar_chart(sent_topic_pivot)
+
+# -----------------------
+# Sentiment by Source
+# -----------------------
+
+if "source" in filtered_df.columns and not filtered_df.empty:
+    st.subheader("💬 Sentiment by Source")
+
+    sent_source_pivot = (
+        filtered_df
+        .groupby(["source", "sentiment_label"])
+        .size()
+        .unstack(fill_value=0)
+        .sort_index()
+    )
+
+    st.bar_chart(sent_source_pivot)
+
 # -----------------------
 # Severity by Topic
 # -----------------------
@@ -216,6 +244,111 @@ if "created_at" in filtered_df.columns:
     )
 
     st.line_chart(time_df)
+# -----------------------
+# New / Rising Issues This Week
+# -----------------------
+
+if "created_at" in filtered_df.columns and "topic_name" in filtered_df.columns:
+    st.subheader("🔥 New / Rising Issues This Week")
+
+    # Work on a copy so we don't mutate filtered_df
+    issues_df = filtered_df.copy()
+
+    # Focus on "issues" if severity is available
+    if "severity" in issues_df.columns:
+        issues_df = issues_df[issues_df["severity"].isin(["Severe", "Moderate"])]
+
+    # Need at least some dated rows
+    issues_df = issues_df.dropna(subset=["created_at"])
+    if issues_df.empty:
+        st.info("No dated feedback available for issue tracking yet.")
+    else:
+        # Ensure datetime type
+        issues_df["created_at"] = pd.to_datetime(issues_df["created_at"], errors="coerce")
+        issues_df = issues_df.dropna(subset=["created_at"])
+
+        if issues_df.empty:
+            st.info("No valid dates after parsing for issue tracking.")
+        else:
+            # Determine the "current week" based on the latest date in the filtered set
+            max_date = issues_df["created_at"].max().normalize()  # midnight
+            # Monday as the start of the week (0=Monday, 6=Sunday)
+            current_week_start = max_date - pd.Timedelta(days=max_date.weekday())
+            last_week_start = current_week_start - pd.Timedelta(days=7)
+            last_week_end = current_week_start - pd.Timedelta(seconds=1)
+
+            # Filter into week buckets
+            this_week_mask = (issues_df["created_at"] >= current_week_start) & (issues_df["created_at"] <= max_date)
+            last_week_mask = (issues_df["created_at"] >= last_week_start) & (issues_df["created_at"] <= last_week_end)
+
+            this_week_df = issues_df[this_week_mask]
+            last_week_df = issues_df[last_week_mask]
+
+            if this_week_df.empty:
+                st.info(
+                    f"No issues found for the current week window "
+                    f"({current_week_start.date()} → {max_date.date()})."
+                )
+            else:
+                this_counts = (
+                    this_week_df
+                    .groupby("topic_name")
+                    .size()
+                    .rename("this_week")
+                )
+                last_counts = (
+                    last_week_df
+                    .groupby("topic_name")
+                    .size()
+                    .rename("last_week")
+                )
+
+                summary = pd.concat([this_counts, last_counts], axis=1).fillna(0).astype(int)
+                summary["change"] = summary["this_week"] - summary["last_week"]
+
+                # Avoid division by zero for pct change
+                def pct(row):
+                    if row["last_week"] == 0:
+                        return None
+                    return (row["change"] / row["last_week"]) * 100.0
+
+                summary["pct_change"] = summary.apply(pct, axis=1)
+
+                # New topics: no occurrences last week, some this week
+                new_topics = summary[(summary["last_week"] == 0) & (summary["this_week"] > 0)]
+                # Rising topics: had some last week, more this week
+                rising_topics = summary[
+                    (summary["last_week"] > 0) &
+                    (summary["this_week"] > summary["last_week"])
+                ].sort_values("change", ascending=False)
+
+                st.caption(
+                    f"Week window: {current_week_start.date()} → {max_date.date()} "
+                    f"(compared to previous week {last_week_start.date()} → {last_week_end.date()})"
+                )
+
+                col_new, col_rising = st.columns(2)
+
+                with col_new:
+                    st.markdown("**🆕 New issue topics this week**")
+                    if new_topics.empty:
+                        st.write("No brand-new topics appeared this week.")
+                    else:
+                        st.dataframe(
+                            new_topics[["this_week"]]
+                            .sort_values("this_week", ascending=False)
+                            .rename(columns={"this_week": "count_this_week"})
+                        )
+
+                with col_rising:
+                    st.markdown("**📈 Rising issue topics (week-over-week)**")
+                    if rising_topics.empty:
+                        st.write("No topics increased compared to last week.")
+                    else:
+                        st.dataframe(
+                            rising_topics[["last_week", "this_week", "change", "pct_change"]]
+                            .round({"pct_change": 1})
+                        )
 
 
 # -----------------------
