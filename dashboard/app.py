@@ -28,6 +28,12 @@ df = load_data()
 if df.empty:
     st.stop()
 SEVERITY_ORDER = ["Severe", "Moderate", "Mild", "Praise"]
+SEVERITY_WEIGHTS = {
+    "Severe": -2,
+    "Moderate": -1,
+    "Mild": 1,
+    "Praise": 2,
+}
 
 if "severity" in df.columns:
     # Make severity a categorical type with order for nicer sorting
@@ -113,6 +119,31 @@ col1.metric("Total Feedback", len(filtered_df))
 col2.metric("Positive", (filtered_df["sentiment_label"] == "POSITIVE").sum())
 col3.metric("Negative", (filtered_df["sentiment_label"] == "NEGATIVE").sum())
 
+# Brand health metric (overall on current filtered data)
+score_df = filtered_df.copy()
+
+# Map sentiment to +1 / -1
+score_df["sentiment_numeric"] = score_df["sentiment_label"].map(
+    {"POSITIVE": 1, "NEGATIVE": -1}
+)
+
+# Add severity weight if available
+if "severity" in score_df.columns:
+    mapped = score_df["severity"].map(SEVERITY_WEIGHTS)
+    score_df["severity_weight"] = pd.to_numeric(mapped, errors="coerce").fillna(0)
+else:
+    score_df["severity_weight"] = 0
+
+
+# Brand health score = sentiment + severity weight
+score_df["brand_health_score"] = score_df["sentiment_numeric"] + score_df["severity_weight"]
+
+if not score_df["brand_health_score"].dropna().empty:
+    brand_health_value = score_df["brand_health_score"].mean()
+    st.metric("Brand Health (overall)", f"{brand_health_value:.2f}")
+else:
+    st.metric("Brand Health (overall)", "N/A")
+
 # -----------------------
 # Source Distribution
 # -----------------------
@@ -169,6 +200,50 @@ sent_topic_pivot = (
 )
 
 st.bar_chart(sent_topic_pivot)
+
+
+# -----------------------
+# Severity by Topic
+# -----------------------
+
+if "severity" in filtered_df.columns:
+    st.subheader("🚦 Severity by Topic")
+
+    sev_topic_pivot = (
+        filtered_df
+        .dropna(subset=["topic_name", "severity"])
+        .groupby(["topic_name", "severity"])
+        .size()
+        .unstack(fill_value=0)
+    )
+
+    # If we have a defined severity order, re-order the columns
+    existing_cols = [c for c in SEVERITY_ORDER if c in sev_topic_pivot.columns]
+    if existing_cols:
+        sev_topic_pivot = sev_topic_pivot[existing_cols]
+
+    st.dataframe(sev_topic_pivot)
+
+# -----------------------
+# Severity by Source
+# -----------------------
+
+if "severity" in filtered_df.columns and "source" in filtered_df.columns:
+    st.subheader("🌍 Severity by Source")
+
+    sev_source_pivot = (
+        filtered_df
+        .dropna(subset=["source", "severity"])
+        .groupby(["source", "severity"])
+        .size()
+        .unstack(fill_value=0)
+    )
+
+    existing_cols_src = [c for c in SEVERITY_ORDER if c in sev_source_pivot.columns]
+    if existing_cols_src:
+        sev_source_pivot = sev_source_pivot[existing_cols_src]
+
+    st.bar_chart(sev_source_pivot)
 
 # -----------------------
 # Sentiment by Source
@@ -244,6 +319,44 @@ if "created_at" in filtered_df.columns:
     )
 
     st.line_chart(time_df)
+# -----------------------
+# Brand Health Over Time
+# -----------------------
+
+bh_df = filtered_df.copy()
+
+# Map sentiment to +1 / -1
+bh_df["sentiment_numeric"] = bh_df["sentiment_label"].map(
+    {"POSITIVE": 1, "NEGATIVE": -1}
+)
+
+# Add severity weight if available
+if "severity" in bh_df.columns:
+    mapped_bh = bh_df["severity"].map(SEVERITY_WEIGHTS)
+    bh_df["severity_weight"] = pd.to_numeric(mapped_bh, errors="coerce").fillna(0)
+else:
+    bh_df["severity_weight"] = 0
+
+bh_df["brand_health_score"] = bh_df["sentiment_numeric"] + bh_df["severity_weight"]
+
+# Clean up dates
+bh_df = bh_df.dropna(subset=["created_at"])
+bh_df["created_at"] = pd.to_datetime(bh_df["created_at"], errors="coerce")
+bh_df = bh_df.dropna(subset=["created_at"])
+
+if not bh_df.empty:
+    bh_time = (
+        bh_df
+        .set_index("created_at")
+        .resample("W")["brand_health_score"]
+        .mean()
+        .to_frame(name="brand_health")
+    )
+
+    st.subheader("📉 Brand Health Over Time")
+    st.line_chart(bh_time)
+
+
 # -----------------------
 # New / Rising Issues This Week
 # -----------------------
