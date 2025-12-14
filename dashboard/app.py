@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+import altair as alt
+
 
 st.set_page_config(page_title="Brand Pulse Monitor", layout="wide")
 
@@ -27,12 +29,36 @@ df = load_data()
 
 if df.empty:
     st.stop()
+# Normalize source names to avoid duplicates like 'google_play ' vs 'google_play'
+if "source" in df.columns:
+    df["source"] = (
+        df["source"]
+        .astype(str)      # make sure it's string
+        .str.strip()      # remove leading/trailing spaces
+        .str.lower()      # make everything lowercase
+        .replace({
+            "trustpilot": "trust_pilot",
+            "trust pilot": "trust_pilot",
+            "trust_pilot": "trust_pilot",
+            "app store": "app_store",
+            "app_store": "app_store",
+            "google play": "google_play",
+            "google_play": "google_play",
+            "reddit": "reddit",
+        })
+    )
 SEVERITY_ORDER = ["Severe", "Moderate", "Mild", "Praise"]
 SEVERITY_WEIGHTS = {
     "Severe": -2,
     "Moderate": -1,
     "Mild": 1,
     "Praise": 2,
+}
+SEVERITY_COLORS = {
+    "Severe": "#d73027",    # strong red
+    "Moderate": "#fc8d59",  # orange
+    "Mild": "#fee08b",      # yellow
+    "Praise": "#1a9850",    # green
 }
 
 if "severity" in df.columns:
@@ -243,7 +269,32 @@ if "severity" in filtered_df.columns and "source" in filtered_df.columns:
     if existing_cols_src:
         sev_source_pivot = sev_source_pivot[existing_cols_src]
 
-    st.bar_chart(sev_source_pivot)
+        sev_long = sev_source_pivot.reset_index().melt(
+        id_vars="source",
+        var_name="severity",
+        value_name="count"
+    )
+
+    chart = (
+        alt.Chart(sev_long)
+        .mark_bar()
+        .encode(
+            x=alt.X("source:N", title="Source"),
+            y=alt.Y("count:Q", title="Number of Reviews"),
+            color=alt.Color(
+                "severity:N",
+                scale=alt.Scale(
+                    domain=list(SEVERITY_COLORS.keys()),
+                    range=list(SEVERITY_COLORS.values()),
+                ),
+                legend=alt.Legend(title="Severity"),
+            ),
+            tooltip=["source", "severity", "count"],
+        )
+    )
+
+    st.altair_chart(chart, use_container_width=True)
+
 
 # -----------------------
 # Sentiment by Source
