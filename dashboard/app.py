@@ -223,6 +223,37 @@ def classify_surface(source: str) -> str:
 filtered_df = filtered_df.copy()
 filtered_df["issue_surface"] = filtered_df["source"].apply(classify_surface)
 
+# -----------------------
+# Topic Framing (Praise vs Mixed vs Issue)
+# -----------------------
+
+def classify_topic_framing(topic_df: pd.DataFrame) -> str:
+    total = len(topic_df)
+    if total == 0 or "severity" not in topic_df.columns:
+        return "Unknown"
+
+    severe_mod = topic_df["severity"].isin(["Severe", "Moderate"]).sum()
+    praise = (topic_df["severity"] == "Praise").sum()
+
+    if severe_mod / total >= 0.6:
+        return "Issue-Driven"
+    elif praise / total >= 0.6:
+        return "Praise"
+    else:
+        return "Mixed"
+
+topic_framing_df = (
+    filtered_df
+    .groupby("topic_name")
+    .apply(classify_topic_framing)
+    .rename("topic_framing")
+    .reset_index()
+)
+filtered_df = filtered_df.merge(
+    topic_framing_df,
+    on="topic_name",
+    how="left"
+)
 
 # -----------------------
 # Summary Metrics
@@ -481,11 +512,13 @@ else:
     st.info("Severity column not found yet, so Issue Rate by surface is unavailable.")
 st.subheader("🛠️ Top Ongoing Digital Issues (Severe + Moderate)")
 
-if "severity" in filtered_df.columns:
+if "severity" in filtered_df.columns and "topic_framing" in filtered_df.columns:
     digital_issues_df = filtered_df[
         (filtered_df["issue_surface"] == "Digital") &
-        (filtered_df["severity"].isin(["Severe", "Moderate"]))
+        (filtered_df["severity"].isin(["Severe", "Moderate"])) &
+        (filtered_df["topic_framing"] == "Issue-Driven")
     ].copy()
+
 
     if digital_issues_df.empty:
         st.write("No Severe/Moderate digital issues in the current filter selection.")
