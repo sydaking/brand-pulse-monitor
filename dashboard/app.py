@@ -68,6 +68,12 @@ def build_scorecard_blurb(curr: dict | None, prev: dict | None) -> str:
 
 
 st.set_page_config(page_title="Brand Pulse Monitor", layout="wide")
+import os
+from datetime import datetime
+
+st.sidebar.caption(f"Build stamp: {datetime.utcnow().isoformat()}Z")
+st.sidebar.caption(f"CWD: {os.getcwd()}")
+
 
 # Title
 st.title("📊 Brand Pulse Monitor")
