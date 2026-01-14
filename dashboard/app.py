@@ -742,6 +742,20 @@ if not bh_df.empty:
 
     st.subheader("📉 Brand Health Over Time")
     st.line_chart(bh_time)
+with st.expander("Brand Health key (how to read this)", expanded=False):
+    st.markdown(
+        """
+**Brand Health range guide (approx.)**
+
+- **≤ -0.50**: Critical (strong negative feedback dominates)
+- **-0.50 to -0.20**: Concerning (more negative than positive)
+- **-0.20 to +0.20**: Mixed / neutral
+- **+0.20 to +0.50**: Healthy (net-positive sentiment)
+- **≥ +0.50**: Strong (consistently positive)
+
+*Note: These are interpretation bands. Calibrate against historical baseline (e.g., last 8–12 weeks).*
+        """
+    )
 
 
 # -----------------------
