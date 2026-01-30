@@ -72,7 +72,6 @@ def add_severity(df: pd.DataFrame) -> pd.DataFrame:
     - Mild
     - Praise
     """
-
     def classify(row):
         label = row.get("sentiment_label", None)
         score = row.get("sentiment_score", None)
@@ -88,21 +87,53 @@ def add_severity(df: pd.DataFrame) -> pd.DataFrame:
         if label is None or score is None:
             return "Mild"
 
-        # Strongly negative / low rating = Severe
-        if label == "NEGATIVE":
-            if (not np.isnan(r) and r <= 2) or score >= 0.9:
-                return "Severe"
-            # still negative but a bit softer
-            return "Moderate"
-
-        # POSITIVE cases
-        if label == "POSITIVE":
-            if not np.isnan(r) and r >= 4 and score >= 0.8:
+        # -------------------------
+        # 1) Rating-based overrides
+        # -------------------------
+        # Trust explicit star ratings over model text sentiment for severity
+        if not np.isnan(r):
+            if r >= 5:
                 return "Praise"
-            # kinda positive or mixed but not a wow moment
+            if r >= 4:
+                # 4-star reviews shouldn't ever be Severe
+                # (even if the sentiment model gets weird)
+                max_allowed = "Moderate"
+            else:
+                max_allowed = None
+        else:
+            max_allowed = None
+
+        # -------------------------
+        # Base severity from sentiment
+        # -------------------------
+        if label == "NEGATIVE":
+            # low rating OR very confident negative => Severe
+            if (not np.isnan(r) and r <= 2) or score >= 0.9:
+                base = "Severe"
+            else:
+                base = "Moderate"
+        else:
+            # POSITIVE
+            if not np.isnan(r) and r >= 4 and score >= 0.8:
+                base = "Praise"
+            else:
+                base = "Mild"
+
+        # -------------------------
+        # 2) Confidence guardrail
+        # -------------------------
+        # If the model isn't confident, don't let it be *Severe*.
+        # (Keep Moderate so we don't flatten the distribution.)
+        if score < 0.75 and base == "Severe":
+            base = "Moderate"
+
+
+        # Apply rating cap (e.g., 4+ stars cannot be Severe)
+        if max_allowed == "Mild" and base in ("Severe", "Moderate"):
             return "Mild"
 
-        return "Mild"
+        return base
+
 
     out = df.copy()
     out["severity"] = out.apply(classify, axis=1)
