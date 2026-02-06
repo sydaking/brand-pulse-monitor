@@ -164,6 +164,78 @@ if "created_at" in df.columns:
 # -----------------------
 
 st.sidebar.header("🔍 Filters")
+# -----------------------
+# Date Range Filter
+# -----------------------
+date_min = None
+date_max = None
+
+if "created_at" in df.columns:
+    df_dates = df["created_at"].dropna()
+
+    if not df_dates.empty:
+        date_min = df_dates.min().date()
+        date_max = df_dates.max().date()
+
+        preset = st.sidebar.selectbox(
+            "Timeframe",
+            [
+                "Custom",
+                "Last 7 days",
+                "Last 30 days",
+                "This month",
+                "Previous month",
+                "Year to date",
+                "All time",
+            ],
+            index=0,
+        )
+
+        # Default selection
+        default_start, default_end = date_min, date_max
+
+        today = pd.Timestamp.today().date()
+        first_of_this_month = pd.Timestamp(today).replace(day=1).date()
+        first_of_prev_month = (pd.Timestamp(today).replace(day=1) - pd.offsets.MonthBegin(1)).date()
+        last_of_prev_month = (pd.Timestamp(today).replace(day=1) - pd.Timedelta(days=1)).date()
+
+        if preset == "Last 7 days":
+            default_start = (pd.Timestamp(today) - pd.Timedelta(days=6)).date()
+            default_end = today
+        elif preset == "Last 30 days":
+            default_start = (pd.Timestamp(today) - pd.Timedelta(days=29)).date()
+            default_end = today
+        elif preset == "This month":
+            default_start = first_of_this_month
+            default_end = today
+        elif preset == "Previous month":
+            default_start = first_of_prev_month
+            default_end = last_of_prev_month
+        elif preset == "Year to date":
+            default_start = pd.Timestamp(today).replace(month=1, day=1).date()
+            default_end = today
+        elif preset == "All time":
+            default_start = date_min
+            default_end = date_max
+
+        date_range = st.sidebar.date_input(
+            "Date range",
+            value=(default_start, default_end),
+            min_value=date_min,
+            max_value=date_max,
+        )
+
+        # date_input can return a single date; normalize to tuple
+        if isinstance(date_range, tuple) and len(date_range) == 2:
+            selected_start, selected_end = date_range
+        else:
+            selected_start = default_start
+            selected_end = default_end
+
+    else:
+        selected_start, selected_end = None, None
+else:
+    selected_start, selected_end = None, None
 
 sentiment_filter = st.sidebar.multiselect(
     "Sentiment",
@@ -208,6 +280,22 @@ filtered_df = df[
     (df["topic_name"].isin(topic_filter)) &
     (df["source"].isin(source_filter))
 ]
+# Date filter
+if "created_at" in filtered_df.columns and selected_start and selected_end:
+    start_dt = pd.to_datetime(selected_start)
+    end_dt = pd.to_datetime(selected_end) + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
+    filtered_df = filtered_df[
+        (filtered_df["created_at"] >= start_dt) &
+        (filtered_df["created_at"] <= end_dt)
+    ]
+use_week_picker = st.sidebar.checkbox("Pick a week", value=False)
+
+if use_week_picker and "created_at" in df.columns and date_min and date_max:
+    week_start = st.sidebar.date_input("Week starting (Mon)", value=date_max)
+    week_start = pd.to_datetime(week_start).date()
+    selected_start = week_start
+    selected_end = (pd.Timestamp(week_start) + pd.Timedelta(days=6)).date()
+
 # Apply severity filter if available
 if selected_severity is not None:
     filtered_df = filtered_df[filtered_df["severity"].isin(selected_severity)]
@@ -266,6 +354,10 @@ filtered_df = filtered_df.merge(
 # -----------------------
 
 st.subheader("📌 Overview")
+# Timeframe context
+
+if selected_start and selected_end:
+    st.caption(f"Showing reviews from {selected_start} to {selected_end}")
 
 col1, col2, col3 = st.columns(3)
 
