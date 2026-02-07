@@ -194,7 +194,7 @@ if "created_at" in df.columns:
         # Default selection
         default_start, default_end = date_min, date_max
 
-        today = pd.Timestamp.today().date()
+        today = date_max
         first_of_this_month = pd.Timestamp(today).replace(day=1).date()
         first_of_prev_month = (pd.Timestamp(today).replace(day=1) - pd.offsets.MonthBegin(1)).date()
         last_of_prev_month = (pd.Timestamp(today).replace(day=1) - pd.Timedelta(days=1)).date()
@@ -218,6 +218,14 @@ if "created_at" in df.columns:
             default_start = date_min
             default_end = date_max
 
+        # ✅ CLAMP — THIS IS THE IMPORTANT PART
+        default_start = max(default_start, date_min)
+        default_end = min(default_end, date_max)
+
+        # If clamping made the range invalid, fall back safely
+        if default_end < default_start:
+            default_start, default_end = date_min, date_max
+        
         date_range = st.sidebar.date_input(
             "Date range",
             value=(default_start, default_end),
