@@ -155,7 +155,7 @@ if "created_at" in df.columns:
     )
 
     # Parse with tolerance; this handles ISO (YYYY-MM-DD) and many variants
-    df["created_at"] = pd.to_datetime(df["created_at"], errors="coerce", infer_datetime_format=True)
+    df["created_at"] = pd.to_datetime(df["created_at"], errors="coerce", format="mixed")
 
 
 
