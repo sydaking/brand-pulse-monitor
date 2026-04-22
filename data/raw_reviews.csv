@@ -1610,3 +1610,96 @@ id,source,created_at,rating,text
 1620,app_store,2026-04-03,1,Cannot log in after update even after reinstalling app
 1621,app_store,2026-04-02,3,App became unusable after update cannot tap or scroll on screen
 1622,app_store,2026-04-02,1,Redesigned app is broken cannot input after uploading invoice
+1623,trust_pilot,2026-04-17,1,Calls separate issues pre existing conditions and avoids covering medical expenses
+1624,trust_pilot,2026-04-16,1,Updated website wiped data and app shows no claims pet info or records
+1625,trust_pilot,2026-04-16,2,Could not log in
+1626,trust_pilot,2026-04-16,5,Outstanding claim reimbursement received in less than 24 hours
+1627,trust_pilot,2026-04-15,5,Good communication and follow up during multiple claims and hospitalization
+1628,trust_pilot,2026-04-15,1,Sign up process and app setup were difficult and time consuming
+1629,trust_pilot,2026-04-15,5,Expensive but coverage worked as promised during major pet expense
+1630,trust_pilot,2026-04-15,5,First claim went smoothly and payments arrived on time
+1631,trust_pilot,2026-04-15,5,Quick turnaround easy claims process and strong recommendation
+1632,trust_pilot,2026-04-14,5,Customer service quick on claims and very good company
+1633,trust_pilot,2026-04-13,1,Poor customer service long waits repeated requests for records and bad claims experience
+1634,trust_pilot,2026-04-13,5,Good customer service with timely claim reviews and reimbursements
+1635,trust_pilot,2026-04-13,1,Would recommend choosing another company due to denials and extra work
+1636,trust_pilot,2026-04-12,2,Emergency visit coverage excluded exams meds and raised pre existing concerns
+1637,trust_pilot,2026-04-11,5,Great customer service quickly helped restore missed payment account
+1638,google_review,2026-04-17,1,Longtime customer says claim for illness was delayed because company requested records already on file after nearly two years of payments
+1639,google_review,2026-04-17,1,Reviewer says company labels unrelated conditions as pre existing and avoids paying claims for senior dog treatments
+1640,google_review,2026-04-17,2,Customer warns coverage may be denied if issues are considered pre existing and says skin related claims were rejected
+1641,google_review,2026-04-17,2,Paid higher premium expecting easier service but felt company cared more about profits than helping pets
+1642,google_review,2026-04-17,1,Customer says every claim was labeled pre existing over four years and recommends saving money instead of buying policy
+1643,google_review,2026-04-17,5,Reviewer says company has been wonderful compared with competitors and much better than friends experiences
+1644,google_review,2026-04-17,5,Friendly knowledgeable support helped customer resolve login issue and submit invoices through the app
+1645,google_review,2026-04-16,1,Customer says enrollment for third cat was misrepresented denied claim and poor support may cause cancellation
+1646,google_review,2026-04-16,3,Longtime customer says premiums rose to one hundred twenty monthly and emergency claim only covered about half
+1647,google_review,2026-04-16,2,New customer reports confusion over credits documentation requests and repeated vet record outreach after enrollment
+1648,google_review,2026-04-16,5,Reviewer highly recommends company citing easy claims process and easy access to live customer support
+1649,google_review,2026-04-16,1,Customer says company covered nothing rejected routine visits and doubled premium after moving states
+1650,google_review,2026-04-16,5,Customer appreciated quick compassionate help changing policy after loss of beloved pet
+1651,google_review,2026-04-16,5,Excellent service experience reported by reviewer
+1652,google_review,2026-04-15,1,Customer says annual premium rose from reasonable cost to nearly ten thousand forcing cancellation despite quick claims
+1653,google_review,2026-04-15,1,Reviewer says adding claim documentation is nearly impossible with long hold times no email replies and poor portal tools
+1654,google_review,2026-04-15,5,Helpful representative assisted customer in choosing the right plan for their cat
+1655,google_review,2026-04-14,1,Reviewer says repeated document requests delayed reimbursement and made valid wellness claims difficult to resolve
+1656,google_review,2026-04-14,1,Claim for accidental boxer injury denied despite veterinarian explanation causing immediate cancellation
+1657,google_review,2026-04-13,4,Customer awaiting surgery claim decision praises customer service but fears large out of pocket costs
+1658,google_review,2026-04-13,1,Reviewer strongly advises avoiding company and says insurance is not worth the time or money
+1659,google_review,2026-04-13,1,Customer says premiums jumped from one hundred sixty eight to nearly four hundred and claims were disputed
+1660,google_review,2026-04-12,5,Reviewer praises amazing process and excellent customer service
+1661,google_review,2026-04-12,5,Friendly associate patiently walked customer through online claim submission process
+1662,google_review,2026-04-12,5,Reviewer describes service as superb
+1663,google_review,2026-04-12,1,Customer upset premium rose from forty monthly to over three hundred despite joining early to keep rates low
+1664,google_review,2026-04-12,2,Reviewer says emergency visit coverage excluded exams medications and raised future pre existing concerns
+1665,google_play,2026-04-15,1,App has not opened for two weeks and reviewer asks company to fix issue
+1666,google_play,2026-04-14,5,Customer says service team is great to work with and claims are easy to submit
+1667,google_play,2026-04-13,1,Reviewer says app suddenly stopped working
+1668,google_play,2026-04-13,1,Customer says app is broken and no longer works
+1669,google_play,2026-04-10,1,App incorrectly says network connection is offline even after reinstall
+1670,google_play,2026-04-07,1,Reviewer says app crashed three times in two minutes
+1671,app_store,2026-04-14,1,Recent spring 2026 update ruined previously reliable app with login glitches and usability issues reviewer wants old version back
+1672,app_store,2026-04-14,2,On iPhone keyboard blocks login screen and reviewer cannot proceed to choose text verification option
+1673,app_store,2026-04-13,1,Reviewer likes insurance but app fails at two step verification because keyboard covers submit button
+1674,app_store,2026-04-20,2,Recent update made app glitchy and prevents login despite reinstall reviewer can still access account via website but not app
+1675,trust_pilot,2026-04-20,1,Customer reports large premium increase from $44 to $76 for a healthy dog with minimal claims and feels stuck due to prior injury coverage
+1676,trust_pilot,2026-04-20,5,Reviewer says representative was professional polite and efficiently resolved issue while updating account information :contentReference[oaicite:0]{index=0}
+1677,trust_pilot,2026-04-20,1,Customer waiting over four months for first claim payment with little communication and repeated requests for pet history
+1678,trust_pilot,2026-04-20,1,Reviewer has waited since January for reimbursement and cannot successfully cancel policy despite multiple attempts
+1679,trust_pilot,2026-04-20,5,Longtime customer of 11 years says company has been very pleasant to التعامل with overall
+1680,trust_pilot,2026-04-18,1,Customer says claim was denied as pre existing for unrelated symptoms and calls company a scam recommending competitors
+1681,trust_pilot,2026-04-18,5,Reviewer says signup process was easy cost seems reasonable and overall experience has been positive so far
+1682,trust_pilot,2026-04-18,2,Customer says agent enrolled pets despite missing exam requirement and later denied coverage calling experience misleading
+1683,google_play,2026-04-21,2,User reports login issues and says multiple parts of the app do not function properly
+1684,google_play,2026-04-20,1,Reviewer says app is very difficult to use and crashes repeatedly when submitting claims
+1685,google_play,2026-04-18,2,Customer waiting weeks for claim progress says emails are not being reviewed and may need to call to resolve
+1686,google_play,2026-04-18,1,Reviewer says both website and app provide poor user experience and are difficult to use
+1687,google_review,2026-04-12,1,App and website are unusable with repeated crashes during claim submission and inability to load or edit coverage making both platforms ineffective :contentReference[oaicite:0]{index=0}
+1688,google_review,2026-04-12,3,Customer initially frustrated with denied claim and unclear enrollment guidance but update notes supervisor intervention and improved resolution experience
+1689,google_review,2026-04-12,5,Reviewer says support team addressed concerns clearly explained options and provided patient professional service
+1690,google_review,2026-04-12,1,Customer says claims process is obstructive with repeated requests for impossible pre policy documents suggesting avoidance of reimbursement
+1691,google_review,2026-04-12,1,Reviewer says first claim is delayed despite no prior medical history and accuses company of misleading practices and avoiding payouts
+1692,google_review,2026-04-12,5,Customer reports excellent experience with easy claims submission and same day reimbursement
+1693,google_review,2026-04-11,4,Reviewer praises helpful representative and smooth first claim experience with strong customer support interaction
+1694,google_review,2026-04-11,2,Customer notes premiums increasing significantly despite never using insurance raising concerns about long term value
+1695,google_review,2026-04-11,4,Reviewer says signup process is easy claims handled efficiently and customer service is strong with flexible plan options
+1696,google_review,2026-04-10,3,New customer unsure about experience while waiting on first claim reimbursement outcome
+1697,google_review,2026-04-10,5,Customer says claims are easy to use and processed quickly with smooth overall experience
+1698,google_review,2026-04-10,2,Reviewer says plan change resulted in delayed billing adjustments and unclear communication about timing of pricing updates
+1699,google_review,2026-04-10,5,Customer describes overall experience as amazing with positive interactions
+1700,google_review,2026-04-10,3,New policyholder says experience is fine so far but has not yet tested claims process
+1699,google_review,2026-04-10,5,Customer says staff provided clear explanations of policy requirements and process
+1700,google_review,2026-04-10,5,Reviewer says signup maintenance and claims process are straightforward and easy to manage
+1701,google_review,2026-04-10,5,Customer describes company as great with strong service experience
+1702,google_review,2026-04-10,5,Longtime customer recommends company highlighting strong coverage and excellent support even during serious illness
+1703,google_review,2026-04-10,1,Reviewer reports significant premium increase after long period without claims and plans to cancel due to cost concerns
+1704,google_review,2026-04-09,5,Customer says staff are helpful and provide strong support
+1705,google_review,2026-04-09,2,Reviewer disappointed by large renewal increase now exceeding cost of family insurance
+1706,google_review,2026-04-09,4,Customer praises easy filing helpful technical support and fair pricing overall
+1707,google_review,2026-04-09,1,Reviewer claims coverage denial due to unclear waiting period rules and poor communication with no callbacks
+1708,google_review,2026-04-09,5,Customer says company has provided best insurance experience with consistent claim approvals and fast processing
+1709,google_review,2026-04-09,2,Customer reports poor claims handling with repeated document requests long hold times and unhelpful support experience
+1710,google_review,2026-04-08,5,Reviewer says representative was knowledgeable courteous and very helpful during interaction
+1711,google_review,2026-04-08,4,Customer praises easy signup customizable plans and fast quoting but notes lack of upfront clarity on exam requirement
+1712,google_review,2026-04-08,1,Reviewer says company denies claims as pre existing and provides little support calling experience frustrating and misleading
+1713,google_review,2026-04-08,2,Customer says coverage limited by pre existing condition rules leading to disappointment with allergy related claims

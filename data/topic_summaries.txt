@@ -1,20 +1,21 @@
 ===== Topic 0 =====
-Total reviews: 245
-Sentiment counts: NEGATIVE: 161, POSITIVE: 84
+Total reviews: 273
+Average rating: 2.03
+Sentiment counts: NEGATIVE: 230, POSITIVE: 43
 Example reviews:
-- "Ripped me off Ripped me off. I only had my policy a couple days and then they abruptly canceled it and kept my money. I tried to get in touch with them and they are not answering."
-- "The process was much easier than previou The process was much easier than previous experiences. Last year I had bills that I didn't submit because I dreaded the process. I was overwhelmed with illness in the family and could not not get my head around the forms. however I find this insurance more expensive than others The deductible is outrageous. Dr. Hoffman is fabulous."
-- "MAJOR PRICE INCREASE They did okay for awhile. I received about $2500 last year in reimbursements on my $10000 policy.. so they went ahead and raised my rate by over 2x / 100%. From about $150 per month to about $350 per month!! In one year for barely using the policy.. highway robbery.."
-- "They keep raising prices with out… They keep raising prices with out notice! I haven’t use this policy not one time!"
-- "Many claims are not covered due to… Many claims are not covered due to reasons that are not applicable. Deductible is high."
-- "I love this insurance I love this insurance. It gives me a piece of mind that if anything happens to Dolly she's protected"
-- "Great experience every time Great experience. In reading so many other reviews I suggest people get this insurance from the start and never lapse on their payment. Very low chance of difficulty then. They get on it very quickly!"
-- "Shameful Shameful. After paying dutifully into our coverage for 11 years they more than doubled our premium in one year without raising our coverage. So we would always be paying them more than ever possibly receiving. It is shameful and disgraceful and heartbreaking. Leaving us high and dry in Rocky’s final years."
+- "They can cant answer my questions I keep calling I get no answers today. I got put on hold and then to a voicemail which no ones responded to. I haven paid any of my claims since August so I would say I am not a very happy customer. They used to be great but now not so much.."
+- "Invited Exceeded expectations The claims process was quick efficient easy and very fast. The claim was processed within 24 hours and the reimbursement was received within a couple days. Very happy with the entire process."
+- "i have filed 3 claims over a month ago… i have filed 3 claims over a month ago and none have been processed."
+- "Premature request for review You prompted me to write a review about submitting a claim. Yes the apparent submission seemed simple enough. As you have not approved it nor have I received reimbursement yet it seems quite oddly premature. Edit: I now see this review is tagged as an unprompted review which is clearly a lie."
+- "Frustrating when the exact diagnosis is not listed Also the review function would not let me review my submitted invoice and would only display the circle of confusion"
+- "Claim for dental procedures denied as preexisting They failed to discover the preexisting until almost a year after we enrolled The condition was treated and resolved Per policy dental treatment is covered once it is treated and resolved We had it treated and resolved and they still denied it They do not advise you of exclusions for preexisting until a claim is submitted They take the premiums and provide no coverage"
+- "The app is easy use However every time I file a claim they say they need all paper work for my dog called the SOAP I have sent it numerous times via email and the app but keep getting my claims delayed by weeks or months because they say they do not have all her paper work when they do It can be frustrating and annoying every time I file a claim have to explain they have all the paper work and then waiting months to finally get reimbursed after several back and forth emails Its like nothing is saved in my file I cant understand the issue"
+- "For some reason my email is now not associated with an account after I paid 469 for an annual membership Now I have to go through the hassle of figuring out how to fix it so I can even put in a claim"
 
 ===== Topic 1 =====
-Total reviews: 355
-Average rating: 4.67
-Sentiment counts: POSITIVE: 315, NEGATIVE: 40
+Total reviews: 360
+Average rating: 4.72
+Sentiment counts: POSITIVE: 325, NEGATIVE: 35
 Example reviews:
 - "FIXED A PROBLEM IN A TIMELY MANNER."
 - "The person in customer service was… The person in customer service was great and very helpful."
@@ -26,21 +27,22 @@ Example reviews:
 - "Easy to submit online and quick… Easy to submit online and quick response time everytime I've called with a question everyone has been friendly and courteous!"
 
 ===== Topic 2 =====
-Total reviews: 241
-Sentiment counts: POSITIVE: 174, NEGATIVE: 67
+Total reviews: 188
+Average rating: 1.72
+Sentiment counts: NEGATIVE: 174, POSITIVE: 14
 Example reviews:
-- "The claims process was very simple."
-- "Quick Response Embrace has a very quick response time. My claim was viewed within 24 hours. The app on my phone made it very convenient and easy to complete. The information they give is easily understood."
-- "Efficient Fast thorough and efficient claim process."
-- "Very easy to use and submit a claim"
-- "Claims are so easy to do! Claims are so easy to do!"
-- "Claims & overall site Revised site & claims process much improved & easier"
-- "Submitting the claim was fast and simple Submitting the claim was fast and simple"
-- "The process of submitting a claim is… The process of submitting a claim is fairly easy. Claims are also handled in a timely fashion."
+- "Telephone kept disconnecting after… Telephone kept disconnecting after waiting for many minute. Disconnections when taking to a rep Finally got log in figured out and now I am happy."
+- "Nothing worked or connected Nothing worked or connected. I emailed customer support and heard nothing back."
+- "I haven’t been able to reach anyone at… I haven’t been able to reach anyone at Embrace. I have a question about coverage. Their website bot is useless and no one picked up the phone over 15 minutes so I gave up."
+- "Phone help was outstanding Still waiting for response to email help and inability to access account settings POST RESPONSE nice to see they dont read the review either I am STILL waiting for an email response about my inability to access and change my account info"
+- "App is broken Spent a long time attempting to file my first claim and finally was able to do so on the desktop app I had Pets Best in the past and may consider switching back to them because its very glitchy and there isnt a way to upload anything under the wellness plan The interface with Pets Best was easier and they had a working app"
+- "The app kept stopping so I had to use my computer Thats fine but what if I didnt have access to a computer Id be stuck"
+- "Unable to select provider from webpage The provider field would not respond on multiple computers and browsers Eventually the phone app worked after several minutes"
+- "I cannot login through the app I have to login through their website After three years the app is still useless Cannot create account because my email is not registered even though I am the second insured"
 
 ===== Topic 3 =====
-Total reviews: 313
-Sentiment counts: POSITIVE: 198, NEGATIVE: 115
+Total reviews: 322
+Sentiment counts: POSITIVE: 201, NEGATIVE: 121
 Example reviews:
 - "I have no complaints with Embrace other… I have no complaints with Embrace other than their APP never seams to work when I need it. Other wise excellent ! Submit claim and in 2 to 3 days your reimbursement is in the bank. Love it! If only personal health insurance was that Easy!!!"
 - "Embrace Answers The rep I spoke to was very understanding and said to submit my claim for my lost pet again and shell see if they will honor it. Anytime I had questions they were there to help me . Its great knowing the company is truly animal friendly !"
@@ -52,29 +54,27 @@ Example reviews:
 - "Glad to be here I just signed up for my 2 cats after my last company jacked up the premium for one cat from $160 per month to $550. The person I spoke with was pleasant clear and informative. The sign up process was easy and quick. The rates were very good. So far so good."
 
 ===== Topic 4 =====
-Total reviews: 160
-Average rating: 1.71
-Sentiment counts: NEGATIVE: 149, POSITIVE: 11
+Total reviews: 265
+Sentiment counts: NEGATIVE: 177, POSITIVE: 88
 Example reviews:
-- "Telephone kept disconnecting after… Telephone kept disconnecting after waiting for many minute. Disconnections when taking to a rep Finally got log in figured out and now I am happy."
-- "Nothing worked or connected Nothing worked or connected. I emailed customer support and heard nothing back."
-- "Phone help was outstanding Still waiting for response to email help and inability to access account settings POST RESPONSE nice to see they dont read the review either I am STILL waiting for an email response about my inability to access and change my account info"
-- "App is broken Spent a long time attempting to file my first claim and finally was able to do so on the desktop app I had Pets Best in the past and may consider switching back to them because its very glitchy and there isnt a way to upload anything under the wellness plan The interface with Pets Best was easier and they had a working app"
-- "The app kept stopping so I had to use my computer Thats fine but what if I didnt have access to a computer Id be stuck"
-- "Unable to select provider from webpage The provider field would not respond on multiple computers and browsers Eventually the phone app worked after several minutes"
-- "I cannot login through the app I have to login through their website After three years the app is still useless Cannot create account because my email is not registered even though I am the second insured"
-- "I have always had issues with the app but recently it has been worse I cannot log in to file a claim Embrace as an insurance company is great but the app needs to be fixed and I cannot log into the website either"
+- "Ripped me off Ripped me off. I only had my policy a couple days and then they abruptly canceled it and kept my money. I tried to get in touch with them and they are not answering."
+- "The process was much easier than previou The process was much easier than previous experiences. Last year I had bills that I didn't submit because I dreaded the process. I was overwhelmed with illness in the family and could not not get my head around the forms. however I find this insurance more expensive than others The deductible is outrageous. Dr. Hoffman is fabulous."
+- "MAJOR PRICE INCREASE They did okay for awhile. I received about $2500 last year in reimbursements on my $10000 policy.. so they went ahead and raised my rate by over 2x / 100%. From about $150 per month to about $350 per month!! In one year for barely using the policy.. highway robbery.."
+- "They keep raising prices with out… They keep raising prices with out notice! I haven’t use this policy not one time!"
+- "Many claims are not covered due to… Many claims are not covered due to reasons that are not applicable. Deductible is high."
+- "I love this insurance I love this insurance. It gives me a piece of mind that if anything happens to Dolly she's protected"
+- "Great experience every time Great experience. In reading so many other reviews I suggest people get this insurance from the start and never lapse on their payment. Very low chance of difficulty then. They get on it very quickly!"
+- "Shameful Shameful. After paying dutifully into our coverage for 11 years they more than doubled our premium in one year without raising our coverage. So we would always be paying them more than ever possibly receiving. It is shameful and disgraceful and heartbreaking. Leaving us high and dry in Rocky’s final years."
 
 ===== Topic 5 =====
-Total reviews: 256
-Average rating: 2.04
-Sentiment counts: NEGATIVE: 217, POSITIVE: 39
+Total reviews: 255
+Sentiment counts: POSITIVE: 187, NEGATIVE: 68
 Example reviews:
-- "They can cant answer my questions I keep calling I get no answers today. I got put on hold and then to a voicemail which no ones responded to. I haven paid any of my claims since August so I would say I am not a very happy customer. They used to be great but now not so much.."
-- "Invited Exceeded expectations The claims process was quick efficient easy and very fast. The claim was processed within 24 hours and the reimbursement was received within a couple days. Very happy with the entire process."
-- "i have filed 3 claims over a month ago… i have filed 3 claims over a month ago and none have been processed."
-- "Premature request for review You prompted me to write a review about submitting a claim. Yes the apparent submission seemed simple enough. As you have not approved it nor have I received reimbursement yet it seems quite oddly premature. Edit: I now see this review is tagged as an unprompted review which is clearly a lie."
-- "Frustrating when the exact diagnosis is not listed Also the review function would not let me review my submitted invoice and would only display the circle of confusion"
-- "Claim for dental procedures denied as preexisting They failed to discover the preexisting until almost a year after we enrolled The condition was treated and resolved Per policy dental treatment is covered once it is treated and resolved We had it treated and resolved and they still denied it They do not advise you of exclusions for preexisting until a claim is submitted They take the premiums and provide no coverage"
-- "The app is easy use However every time I file a claim they say they need all paper work for my dog called the SOAP I have sent it numerous times via email and the app but keep getting my claims delayed by weeks or months because they say they do not have all her paper work when they do It can be frustrating and annoying every time I file a claim have to explain they have all the paper work and then waiting months to finally get reimbursed after several back and forth emails Its like nothing is saved in my file I cant understand the issue"
-- "For some reason my email is now not associated with an account after I paid 469 for an annual membership Now I have to go through the hassle of figuring out how to fix it so I can even put in a claim"
+- "The claims process was very simple."
+- "Quick Response Embrace has a very quick response time. My claim was viewed within 24 hours. The app on my phone made it very convenient and easy to complete. The information they give is easily understood."
+- "Efficient Fast thorough and efficient claim process."
+- "Very easy to use and submit a claim"
+- "Claims are so easy to do! Claims are so easy to do!"
+- "Claims & overall site Revised site & claims process much improved & easier"
+- "Submitting the claim was fast and simple Submitting the claim was fast and simple"
+- "The process of submitting a claim is… The process of submitting a claim is fairly easy. Claims are also handled in a timely fashion."
