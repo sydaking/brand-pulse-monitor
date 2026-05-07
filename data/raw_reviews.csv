@@ -1703,3 +1703,115 @@ id,source,created_at,rating,text
 1711,google_review,2026-04-08,4,Customer praises easy signup customizable plans and fast quoting but notes lack of upfront clarity on exam requirement
 1712,google_review,2026-04-08,1,Reviewer says company denies claims as pre existing and provides little support calling experience frustrating and misleading
 1713,google_review,2026-04-08,2,Customer says coverage limited by pre existing condition rules leading to disappointment with allergy related claims
+1714,trust_pilot,2026-05-07,1,Reviewer says policy tripled in price after one year for a young boxer and was disappointed medications were not covered as expected
+1715,trust_pilot,2026-05-07,1,Customer waited over five months for claim processing despite vet repeatedly sending records only to have multiple claims denied as pre existing
+1716,trust_pilot,2026-05-07,5,Reviewer strongly recommends pet insurance and describes company as top notch
+1717,trust_pilot,2026-05-07,1,Customer says portal stopped working after first successful claim and support blamed technical issues after long wait times
+1718,trust_pilot,2026-05-06,4,Reviewer praises professional support but says payment methods should be self service online instead of requiring phone calls
+1719,trust_pilot,2026-05-06,2,Customer reports long telephone wait times website outages and delays in vet communication
+1720,trust_pilot,2026-05-06,5,Reviewer says claims are easy to submit and reimbursements are fast with positive overall experience
+1721,trust_pilot,2026-05-05,5,Customer says claims and issues are resolved quickly and recommends company for responsive service
+1722,trust_pilot,2026-05-04,5,Reviewer says company consistently exceeds expectations with fast claim processing and strong coverage
+1723,trust_pilot,2026-05-04,1,Customer accuses company of delaying accident claim processing fabricating review timelines and canceling policy unexpectedly
+1724,trust_pilot,2026-05-04,1,Reviewer says company requested thousands in diagnostic testing for rescue dog and felt coverage expectations were misleading
+1725,trust_pilot,2026-05-03,5,Customer says claims are paid quickly coverage is easy to understand and representatives are responsive and knowledgeable
+1726,trust_pilot,2026-05-03,5,Reviewer praises friendly employees and easy to navigate claims process
+1727,trust_pilot,2026-04-30,5,Customer says representative answered questions thoroughly and helped secure additional discounts during signup
+1728,trust_pilot,2026-04-29,4,Reviewer says customer service was very good and claim review process moved within reasonable time after records were received
+1729,trust_pilot,2026-04-27,1,Customer reports broken website password recovery issues and poor document handling shortly after signing up
+1730,trust_pilot,2026-04-27,5,Reviewer says company provides excellent customer service and honors contract coverage recommending them highly
+1731,trust_pilot,2026-04-27,5,Customer says first claim was processed within 24 hours after technical issues were resolved and praises support team
+1732,trust_pilot,2026-04-26,5,Reviewer says support staff were very helpful with claims and appreciated access to real human assistance
+1733,trust_pilot,2026-04-26,1,Longtime customer says premiums increased to $550 per month for senior dog after 13 years despite few claims and feels pushed to cancel coverage
+1734,trust_pilot,2026-04-26,2,Reviewer says premiums keep increasing yearly regardless of claims history and found cheaper coverage elsewhere for younger dog
+1735,trust_pilot,2026-04-26,5,Customer praises personable customer service and says representative was friendly attentive and answered questions thoroughly
+1736,trust_pilot,2026-04-26,1,Reviewer says cancer claim for pug was refused after two years of coverage and feels company only wants payments without helping
+1737,trust_pilot,2026-04-25,5,Customer praises representative Tiffany for professional follow up and helpful support while dealing with puppy illness
+1738,trust_pilot,2026-04-25,3,Longtime customer says approved claims are reimbursed quickly but criticizes AI claim reviews and limited coverage for rehabilitation therapies
+1739,trust_pilot,2026-04-25,5,Reviewer says staff were very helpful and friendly throughout experience
+1740,trust_pilot,2026-04-25,5,Customer says claims for puppy injuries and major surgery were processed smoothly and praises helpful customer service with renewals
+1741,trust_pilot,2026-04-24,1,Reviewer says company became slower and more aggressive denying claims after renewal by labeling unrelated conditions as pre existing
+1742,trust_pilot,2026-04-23,1,Customer says monthly insurance premiums doubled after filing a claim and was disappointed with suggested coverage reductions
+1743,trust_pilot,2026-04-22,3,Longtime customer praises customer service but says premiums for older pets have become extremely expensive after years of coverage
+1744,trust_pilot,2026-04-22,5,Reviewer says claims are easy to submit processed quickly and communication about additional information is excellent
+1745,trust_pilot,2026-04-22,5,Customer praises prompt professional service and says they trust company more than other insurance providers
+1746,trust_pilot,2026-04-22,5,Reviewer says company is reputable with knowledgeable staff easy billing clear claims setup and timely communication
+1747,trust_pilot,2026-04-22,5,Customer says representative Roger was patient knowledgeable and offered better pricing than competing insurers
+1748,trust_pilot,2026-04-22,1,Reviewer says monthly premium nearly doubled after submitting a small forty dollar claim and calls company a rip off
+1749,trust_pilot,2026-04-22,5,Customer praises knowledgeable and customer oriented staff saying interactions are always pleasant
+1750,trust_pilot,2026-04-21,5,Reviewer says company is much better than previous pet insurance providers and gives very high recommendation
+1751,trust_pilot,2026-04-20,1,Customer complains about major premium increase for toy poodle despite only one claim and says deductible is already very high
+1752,google_play,2026-05-05,1,User says app allows sign in but crashes immediately while attempting to finish login process
+1753,google_play,2026-05-04,1,Reviewer says app stopped working months ago and continually reports no internet connection despite device being connected
+1754,google_play,2026-05-03,1,Customer says Android app appears outdated and broken with incorrect version rollback while iPhone app reportedly works properly
+1755,app_store,2026-05-04,1,Reviewer says old version of the app worked perfectly but new version is extremely slow fails to load invoices consistently and often will not submit claims
+1756,app_store,2026-05-03,1,Customer says latest update ruined the app with extremely slow load times and unusable performance throughout the claims process
+1757,app_store,2026-05-03,1,Reviewer says app constantly crashes struggles to find providers and has frustrating multi step login and broken receipt recognition during claim submission
+1758,app_store,2026-05-03,2,Customer says redesigned app looks better visually but backend issues and slow loading make claims submission nearly unusable
+1759,app_store,2026-05-02,1,Reviewer says newest update made the app extremely slow and frustrating even for basic login functionality
+1760,google_review,2026-05-07,5,Prompt service with great coverage and strong overall value
+1761,google_review,2026-05-06,1,Reviewer says experience with Embrace was frustrating and misleading and regrets choosing the company
+1762,google_review,2026-05-06,1,Customer reports major issues with claims portal and describes claims experience as terrible
+1763,google_review,2026-05-06,5,Reviewer praises representative Bri for being patient knowledgeable courteous and professional throughout the process
+1764,google_review,2026-05-06,5,Customer says service has been professional easy to use and premiums are excellent though no claims have been filed yet
+1765,google_review,2026-05-06,1,Reviewer says company delayed claim processing for months then denied coverage as pre existing despite records showing otherwise
+1766,google_review,2026-05-05,1,Customer says claims process involved nonstop issues despite dog having no prior medical conditions
+1767,google_review,2026-05-05,1,Reviewer says promised neutering coverage was not honored and customer service failed to resolve the issue
+1768,google_review,2026-05-05,5,Customer says company is affordable easy to work with and provides excellent customer service
+1769,google_review,2026-05-04,5,Reviewer praises customer service and says staff helped file claims quickly and easily
+1770,google_review,2026-05-04,1,Customer warns others to avoid Embrace citing denied claims app failures and website problems preventing claim submission
+1771,google_review,2026-05-04,5,Reviewer says Embrace has helped cover significant vet bills for years and gave confidence to pursue advanced testing
+1772,google_review,2026-05-04,5,Customer says Embrace provides the best pet insurance experience they have had with fast claim approvals and reliable coverage
+1773,google_review,2026-05-04,1,Reviewer complains reimbursement has not been received and payment delays are frustrating
+1774,google_review,2026-05-03,5,Customer says company has been dependable through every stage of their dogs lives with strong customer service and coverage
+1775,google_review,2026-05-03,5,Reviewer says reimbursement process has been fast and hassle free over more than five years with Embrace
+1776,google_review,2026-05-03,1,Customer says website is unusable and they could not update coverage or manage renewal options online
+1777,google_review,2026-05-03,1,Reviewer says coverage was disappointing when it mattered most and left them frustrated
+1778,google_review,2026-05-03,5,Customer appreciates broad insurance options covering everything from routine care to major issues
+1779,google_review,2026-05-03,5,Reviewer says claims process is straightforward and easy to complete
+1780,google_review,2026-05-03,5,Customer praises quick claim payments clear coverage explanations and responsive representatives
+1781,google_review,2026-05-02,5,Reviewer says customer service has been excellent and coverage options are easy to understand
+1782,google_review,2026-05-02,5,Customer says service and coverage have exceeded expectations with very fast reimbursements
+1783,google_review,2026-05-02,5,Reviewer says Embrace makes claim filing simple and reimbursements arrive quickly
+1784,google_review,2026-05-02,5,Customer praises knowledgeable and responsive support team along with fast claims processing
+1785,google_review,2026-05-01,5,Reviewer says experience with Embrace has been excellent so far
+1786,google_review,2026-05-01,5,Customer says service has been consistently great and easy to work with
+1787,google_review,2026-05-01,5,Reviewer says Embrace has provided excellent coverage and support for their dogs for years
+1788,google_review,2026-05-01,5,Customer says representatives are friendly patient and helpful when answering questions
+1789,google_review,2026-05-01,1,Reviewer says website is completely broken and cancellation refund has not been processed while billing continues
+1790,google_review,2026-05-01,5,Customer recommends pet insurance and says pet ownership costs are higher than expected
+1791,google_review,2026-05-01,3,Reviewer says claims processing has improved recently but prior years involved frustrating delays and missing records
+1792,google_review,2026-05-01,5,Customer says Embrace always makes the process easy and straightforward
+1793,google_review,2026-05-01,5,Reviewer says claims are processed promptly and service has been wonderful overall
+1794,google_review,2026-05-01,1,Customer says claims were never reimbursed rates keep increasing and app and customer service are poor
+1795,google_review,2026-05-01,5,Reviewer praises easy to understand plans and user friendly website experience
+1796,google_review,2026-05-01,5,Customer says support team is knowledgeable friendly prompt and helpful
+1797,google_review,2026-05-01,5,Reviewer praises clear communication transparency on coverage and fast claims turnaround
+1798,google_review,2026-04-30,5,Customer says initial interaction with representative Clay was very informative and helpful
+1799,google_review,2026-04-30,5,Reviewer praises fast service and strong overall coverage
+1800,google_review,2026-04-30,5,Customer highly recommends Embrace for quick responses and genuine customer care
+1801,google_review,2026-04-30,5,Reviewer says company has always supported their dogs when needed
+1802,google_review,2026-04-30,5,Customer praises Derek for responsive and helpful customer service
+1803,google_review,2026-04-30,3,Reviewer says phone hold times are too long and requests a callback option for customer support
+1804,google_review,2026-04-30,5,Customer says first claim was processed quickly and simply with reimbursement approved within an hour
+1805,google_review,2026-04-30,1,Reviewer says claims take too long and were denied as pre existing conditions
+1806,google_review,2026-04-30,1,Customer says company searched vet records for reasons to deny claims despite years of premium payments
+1807,google_review,2026-04-30,1,Reviewer says website login and password reset systems are broken and onboarding experience felt incompetent
+1808,google_review,2026-04-30,5,Customer says switching to Embrace provided better coverage at a similar price with helpful service from representative Sarah
+1809,google_review,2026-04-30,5,Reviewer praises representative Sydney for knowledgeable customer service that made choosing coverage easy
+1810,google_review,2026-04-30,5,Customer strongly recommends Embrace saying service and coverage have consistently met expectations
+1811,google_review,2026-04-30,5,Reviewer says setup process was easy and hopes reimbursements will be just as smooth
+1812,google_review,2026-04-30,1,Customer says premium increases after many years of loyalty were excessive and financially unsustainable
+1813,google_review,2026-04-30,5,Reviewer praises quick responses and excellent customer service
+1814,google_review,2026-04-30,5,Customer says procedure and recovery process for pet went smoothly and as expected
+1815,google_review,2026-04-30,5,Reviewer says support team answered all questions and was easy to work with
+1816,google_review,2026-04-30,5,Customer says claims and wellness reimbursements are processed quickly providing peace of mind
+1817,google_review,2026-04-30,5,Reviewer says Embrace has provided reliable service for over six years and is the best pet insurance company they have used
+1818,google_review,2026-04-30,3,Customer says insurance provided value for one major procedure but monthly premiums and deductible only claims remain frustrating
+1819,google_review,2026-04-30,5,Reviewer praises excellent customer service and fast straightforward processes
+1820,google_review,2026-04-30,5,Customer says company makes everything simple and efficient
+1821,google_review,2026-04-30,1,Reviewer says yearly rate increases make the policy no longer worth the cost compared to saving independently
+1822,google_review,2026-04-30,5,Customer says setup issues were resolved quickly with excellent customer service for new USAA member
+1823,google_review,2026-04-30,3,Reviewer says long term premium increases for retired customers are making coverage difficult to afford
+1824,google_review,2026-04-23,1,Customer says puppy exam was incorrectly treated as a pre existing condition and plans to cancel coverage
+1825,google_review,2026-04-23,1,Reviewer calls the insurance a scam saying healthy puppy claims were denied due to pre existing condition loopholes

@@ -1,7 +1,7 @@
 ===== Topic 0 =====
-Total reviews: 273
-Average rating: 2.03
-Sentiment counts: NEGATIVE: 230, POSITIVE: 43
+Total reviews: 298
+Average rating: 2.07
+Sentiment counts: NEGATIVE: 249, POSITIVE: 49
 Example reviews:
 - "They can cant answer my questions I keep calling I get no answers today. I got put on hold and then to a voicemail which no ones responded to. I haven paid any of my claims since August so I would say I am not a very happy customer. They used to be great but now not so much.."
 - "Invited Exceeded expectations The claims process was quick efficient easy and very fast. The claim was processed within 24 hours and the reimbursement was received within a couple days. Very happy with the entire process."
@@ -13,23 +13,9 @@ Example reviews:
 - "For some reason my email is now not associated with an account after I paid 469 for an annual membership Now I have to go through the hassle of figuring out how to fix it so I can even put in a claim"
 
 ===== Topic 1 =====
-Total reviews: 360
-Average rating: 4.72
-Sentiment counts: POSITIVE: 325, NEGATIVE: 35
-Example reviews:
-- "FIXED A PROBLEM IN A TIMELY MANNER."
-- "The person in customer service was… The person in customer service was great and very helpful."
-- "I talked to two people I talked to two people. The second called me to see what they could do to make the policy work for me. We were on the phone for an hour before we could find a solution. It was amazing customer service."
-- "This was easy and took only a few… This was easy and took only a few mintues."
-- "Such Ease and user friendly!"
-- "Rep's always helpful & courteous. Thank you Rep's always helpful"
-- "It was straightforward and step by step… It was straightforward and step by step instructions were provided. The whole process did not take long"
-- "Easy to submit online and quick… Easy to submit online and quick response time everytime I've called with a question everyone has been friendly and courteous!"
-
-===== Topic 2 =====
-Total reviews: 188
-Average rating: 1.72
-Sentiment counts: NEGATIVE: 174, POSITIVE: 14
+Total reviews: 198
+Average rating: 1.69
+Sentiment counts: NEGATIVE: 184, POSITIVE: 14
 Example reviews:
 - "Telephone kept disconnecting after… Telephone kept disconnecting after waiting for many minute. Disconnections when taking to a rep Finally got log in figured out and now I am happy."
 - "Nothing worked or connected Nothing worked or connected. I emailed customer support and heard nothing back."
@@ -40,9 +26,9 @@ Example reviews:
 - "Unable to select provider from webpage The provider field would not respond on multiple computers and browsers Eventually the phone app worked after several minutes"
 - "I cannot login through the app I have to login through their website After three years the app is still useless Cannot create account because my email is not registered even though I am the second insured"
 
-===== Topic 3 =====
-Total reviews: 322
-Sentiment counts: POSITIVE: 201, NEGATIVE: 121
+===== Topic 2 =====
+Total reviews: 338
+Sentiment counts: POSITIVE: 212, NEGATIVE: 126
 Example reviews:
 - "I have no complaints with Embrace other… I have no complaints with Embrace other than their APP never seams to work when I need it. Other wise excellent ! Submit claim and in 2 to 3 days your reimbursement is in the bank. Love it! If only personal health insurance was that Easy!!!"
 - "Embrace Answers The rep I spoke to was very understanding and said to submit my claim for my lost pet again and shell see if they will honor it. Anytime I had questions they were there to help me . Its great knowing the company is truly animal friendly !"
@@ -53,22 +39,23 @@ Example reviews:
 - "Embrace is a top notch pet insurance company Embrace provides a very easy claims process with reimbursement sometimes happening on the same day. It also provides great coverage for the money. The support staff is empathetic and very helpful even offering suggestions to lower premium costs without jeopardizing coverage. We have two dogs who have been covered by Embrace for many years and some serious medical issues."
 - "Glad to be here I just signed up for my 2 cats after my last company jacked up the premium for one cat from $160 per month to $550. The person I spoke with was pleasant clear and informative. The sign up process was easy and quick. The rates were very good. So far so good."
 
-===== Topic 4 =====
-Total reviews: 265
-Sentiment counts: NEGATIVE: 177, POSITIVE: 88
+===== Topic 3 =====
+Total reviews: 397
+Average rating: 4.73
+Sentiment counts: POSITIVE: 359, NEGATIVE: 38
 Example reviews:
-- "Ripped me off Ripped me off. I only had my policy a couple days and then they abruptly canceled it and kept my money. I tried to get in touch with them and they are not answering."
-- "The process was much easier than previou The process was much easier than previous experiences. Last year I had bills that I didn't submit because I dreaded the process. I was overwhelmed with illness in the family and could not not get my head around the forms. however I find this insurance more expensive than others The deductible is outrageous. Dr. Hoffman is fabulous."
-- "MAJOR PRICE INCREASE They did okay for awhile. I received about $2500 last year in reimbursements on my $10000 policy.. so they went ahead and raised my rate by over 2x / 100%. From about $150 per month to about $350 per month!! In one year for barely using the policy.. highway robbery.."
-- "They keep raising prices with out… They keep raising prices with out notice! I haven’t use this policy not one time!"
-- "Many claims are not covered due to… Many claims are not covered due to reasons that are not applicable. Deductible is high."
-- "I love this insurance I love this insurance. It gives me a piece of mind that if anything happens to Dolly she's protected"
-- "Great experience every time Great experience. In reading so many other reviews I suggest people get this insurance from the start and never lapse on their payment. Very low chance of difficulty then. They get on it very quickly!"
-- "Shameful Shameful. After paying dutifully into our coverage for 11 years they more than doubled our premium in one year without raising our coverage. So we would always be paying them more than ever possibly receiving. It is shameful and disgraceful and heartbreaking. Leaving us high and dry in Rocky’s final years."
+- "FIXED A PROBLEM IN A TIMELY MANNER."
+- "The person in customer service was… The person in customer service was great and very helpful."
+- "I talked to two people I talked to two people. The second called me to see what they could do to make the policy work for me. We were on the phone for an hour before we could find a solution. It was amazing customer service."
+- "This was easy and took only a few… This was easy and took only a few mintues."
+- "Such Ease and user friendly!"
+- "Rep's always helpful & courteous. Thank you Rep's always helpful"
+- "It was straightforward and step by step… It was straightforward and step by step instructions were provided. The whole process did not take long"
+- "Easy to submit online and quick… Easy to submit online and quick response time everytime I've called with a question everyone has been friendly and courteous!"
 
-===== Topic 5 =====
-Total reviews: 255
-Sentiment counts: POSITIVE: 187, NEGATIVE: 68
+===== Topic 4 =====
+Total reviews: 260
+Sentiment counts: POSITIVE: 192, NEGATIVE: 68
 Example reviews:
 - "The claims process was very simple."
 - "Quick Response Embrace has a very quick response time. My claim was viewed within 24 hours. The app on my phone made it very convenient and easy to complete. The information they give is easily understood."
@@ -78,3 +65,16 @@ Example reviews:
 - "Claims & overall site Revised site & claims process much improved & easier"
 - "Submitting the claim was fast and simple Submitting the claim was fast and simple"
 - "The process of submitting a claim is… The process of submitting a claim is fairly easy. Claims are also handled in a timely fashion."
+
+===== Topic 5 =====
+Total reviews: 284
+Sentiment counts: NEGATIVE: 191, POSITIVE: 93
+Example reviews:
+- "Ripped me off Ripped me off. I only had my policy a couple days and then they abruptly canceled it and kept my money. I tried to get in touch with them and they are not answering."
+- "The process was much easier than previou The process was much easier than previous experiences. Last year I had bills that I didn't submit because I dreaded the process. I was overwhelmed with illness in the family and could not not get my head around the forms. however I find this insurance more expensive than others The deductible is outrageous. Dr. Hoffman is fabulous."
+- "MAJOR PRICE INCREASE They did okay for awhile. I received about $2500 last year in reimbursements on my $10000 policy.. so they went ahead and raised my rate by over 2x / 100%. From about $150 per month to about $350 per month!! In one year for barely using the policy.. highway robbery.."
+- "They keep raising prices with out… They keep raising prices with out notice! I haven’t use this policy not one time!"
+- "Many claims are not covered due to… Many claims are not covered due to reasons that are not applicable. Deductible is high."
+- "I love this insurance I love this insurance. It gives me a piece of mind that if anything happens to Dolly she's protected"
+- "Great experience every time Great experience. In reading so many other reviews I suggest people get this insurance from the start and never lapse on their payment. Very low chance of difficulty then. They get on it very quickly!"
+- "Shameful Shameful. After paying dutifully into our coverage for 11 years they more than doubled our premium in one year without raising our coverage. So we would always be paying them more than ever possibly receiving. It is shameful and disgraceful and heartbreaking. Leaving us high and dry in Rocky’s final years."
